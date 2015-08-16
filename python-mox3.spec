@@ -6,7 +6,7 @@
 %endif
 
 Name:           python-%{pypi_name}
-Version:        0.7.0
+Version:        0.9.0
 Release:        1%{?dist}
 Summary:        Mock object framework for Python
 
@@ -17,16 +17,18 @@ Source0:        https://pypi.python.org/packages/source/m/%{pypi_name}/%{pypi_na
 Patch0:         %{name}-ismethod.patch
 BuildArch:      noarch
  
+Requires:  python-pbr >= 1.3.0
+
 BuildRequires:  python-devel
-BuildRequires:  python-pbr >= 0.5.21
-BuildRequires:  python-pbr < 1.0
+BuildRequires:  python-pbr >= 1.3.0
 BuildRequires:  python-nose
 BuildRequires:  python-testrepository
  
 %if 0%{?with_python3}
+Requires:  python3-pbr >= 1.3.0
+
 BuildRequires:  python3-devel
-BuildRequires:  python3-pbr >= 0.5.21
-BuildRequires:  python3-pbr < 1.0
+BuildRequires:  python3-pbr >= 1.3.0
 BuildRequires:  python3-nose
 BuildRequires:  python3-testrepository
 %endif
@@ -109,5 +111,8 @@ popd
 
 
 %changelog
+* Sun Aug 16 2015 Alan Pevec <alan.pevec@redhat.com> 0.9.0-1
+- Update to upstream 0.9.0
+
 * Tue Dec 16 2014 Miro Hrončok <mhroncok@redhat.com> - 0.7.0-1
 - Initial package.

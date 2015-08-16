@@ -1,6 +1,3 @@
-diff --git a/mox3/__pycache__/mox.cpython-34.pyc b/mox3/__pycache__/mox.cpython-34.pyc
-index ac4e1d0..ea7825e 100644
-Binary files a/mox3/__pycache__/mox.cpython-34.pyc and b/mox3/__pycache__/mox.cpython-34.pyc differ
 diff --git a/mox3/mox.py b/mox3/mox.py
 index 3c10cc8..95bd818 100644
 --- a/mox3/mox.py
@@ -18,17 +15,11 @@ index 3c10cc8..95bd818 100644
          self._method = method
          self._instance = None    # May contain the instance this is bound to.
          self._instance = getattr(method, "__self__", None)
-diff --git a/mox3/mox.pyc b/mox3/mox.pyc
-index 777be88..611d5ba 100644
-Binary files a/mox3/mox.pyc and b/mox3/mox.pyc differ
-diff --git a/mox3/tests/__pycache__/test_mox.cpython-34.pyc b/mox3/tests/__pycache__/test_mox.cpython-34.pyc
-index dbcbb98..c9123e7 100644
-Binary files a/mox3/tests/__pycache__/test_mox.cpython-34.pyc and b/mox3/tests/__pycache__/test_mox.cpython-34.pyc differ
 diff --git a/mox3/tests/test_mox.py b/mox3/tests/test_mox.py
 index a04a998..2fccc31 100644
 --- a/mox3/tests/test_mox.py
 +++ b/mox3/tests/test_mox.py
-@@ -770,21 +770,6 @@ class MockAnythingTest(testtools.TestCase):
+@@ -772,21 +772,6 @@
  class MethodCheckerTest(testtools.TestCase):
      """Tests MockMethod's use of MethodChecker method."""
  
