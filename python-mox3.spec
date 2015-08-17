@@ -7,7 +7,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.9.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Mock object framework for Python
 
 License:        ASL 2.0
@@ -19,7 +19,7 @@ BuildArch:      noarch
  
 Requires:  python-pbr >= 1.3.0
 
-BuildRequires:  python-devel
+BuildRequires:  python2-devel
 BuildRequires:  python-pbr >= 1.3.0
 BuildRequires:  python-nose
 BuildRequires:  python-testrepository
@@ -35,10 +35,9 @@ BuildRequires:  python3-testrepository
 
 
 %description
-Mox3 is an unofficial port of the
-Google mox framework to Python 3. It was
-meant to be as compatible
-with mox as possible, but small enhancements have
+Mox3 is a mock object framework for Python 3 and 2.7.
+Mox3 is an unofficial port of the Google mox framework to Python 3. It was
+meant to be as compatible with mox as possible, but small enhancements have
 been made.
 
 This is Python 2 version.
@@ -49,11 +48,12 @@ Summary:        Mock object framework for Python
 
 
 %description -n python3-%{pypi_name}
-Mox3 is an unofficial port of the
-Google mox framework to Python 3. It was
-meant to be as compatible
-with mox as possible, but small enhancements have
+Mox3 is a mock object framework for Python 3 and 2.7.
+Mox3 is an unofficial port of the Google mox framework to Python 3. It was
+meant to be as compatible with mox as possible, but small enhancements have
 been made.
+
+This is Python 3 version.
 %endif
 
 %prep
@@ -89,7 +89,7 @@ popd
 %{__python2} setup.py install --skip-build --root %{buildroot}
 
 %check
-nosetests
+nosetests-%{python2_version}
 
 %if 0%{?with_python3}
 pushd %{py3dir}
@@ -98,19 +98,24 @@ popd
 %endif
 
 %files
-%doc README.rst COPYING.txt
+%doc README.rst
+%license COPYING.txt
 %{python2_sitelib}/%{pypi_name}
 %{python2_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
 
 %if 0%{?with_python3}
 %files -n python3-%{pypi_name}
-%doc README.rst COPYING.txt
+%doc README.rst
+%license COPYING.txt
 %{python3_sitelib}/%{pypi_name}
 %{python3_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
 %endif
 
 
 %changelog
+* Mon Aug 17 2015 Alan Pevec <apevec.pevec@redhat.com> 0.9.0-2
+- package review feedback
+
 * Sun Aug 16 2015 Alan Pevec <alan.pevec@redhat.com> 0.9.0-1
 - Update to upstream 0.9.0
 
