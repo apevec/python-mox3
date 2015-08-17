@@ -14,7 +14,6 @@ License:        ASL 2.0
 URL:            http://www.openstack.org/
 Source0:        https://pypi.python.org/packages/source/m/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 # https://bugs.launchpad.net/heat-cfntools/+bug/1403214/
-Patch0:         %{name}-ismethod.patch
 BuildArch:      noarch
  
 Requires:  python-pbr >= 1.3.0
@@ -63,9 +62,7 @@ This is Python 3 version.
 rm -rf %{py3dir}
 cp -a . %{py3dir}
 
-# Only apply the patch on Python 3
 pushd %{py3dir}
-%patch0 -p1
 popd
 %endif
 
