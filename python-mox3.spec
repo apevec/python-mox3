@@ -7,7 +7,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.9.0
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Mock object framework for Python
 
 License:        ASL 2.0
@@ -26,6 +26,9 @@ been made.
 %package -n     python2-%{pypi_name}
 Summary:        Mock object framework for Python
 %{?python_provide:%python_provide python2-%{pypi_name}}
+# FIXME python_provide does not exist in CBS Cloud buildroot
+# TODO remove when rdo-rpm-macros is available
+Provides:       python-mox3 = %{version}
 
 Requires:  python-pbr
 
