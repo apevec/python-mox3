@@ -15,7 +15,7 @@ URL:            http://www.openstack.org/
 Source0:        https://pypi.python.org/packages/source/m/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 # https://bugs.launchpad.net/heat-cfntools/+bug/1403214/
 BuildArch:      noarch
- 
+
 
 %description
 Mox3 is a mock object framework for Python 3 and 2.7.
@@ -46,7 +46,7 @@ Mox3 is a mock object framework for Python 3 and 2.7.
 Mox3 is an unofficial port of the Google mox framework to Python 3. It was
 meant to be as compatible with mox as possible, but small enhancements have
 been made.
- 
+
 %if 0%{?with_python3}
 %package -n     python3-%{pypi_name}
 Summary:        Mock object framework for Python
@@ -77,8 +77,6 @@ This is Python 3 version.
 
 %prep
 %setup -q -n %{pypi_name}-%{version}
-# Remove bundled egg-info
-rm -rf %{pypi_name}.egg-info
 
 # let RPM handle deps
 rm -rf {test-,}requirements.txt
